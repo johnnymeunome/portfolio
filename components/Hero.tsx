@@ -1,6 +1,8 @@
 import React from 'react'
 import { Spotlight } from './ui/Spotlight'
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
+import MagicButton from './ui/MagicButton'
+import { FaLocationArrow } from 'react-icons/fa'
 
 const Hero = () => {
   return (
@@ -30,6 +32,7 @@ const Hero = () => {
           <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
             Dynamic Web Magic with Next.js
           </p>
+         
 
           {/**
            *  Link: https://ui.aceternity.com/components/text-generate-effect
@@ -44,7 +47,14 @@ const Hero = () => {
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-1.2xl">
             Hi! I&apos;m Adrian, a Next.js Developer based in Croatia.
           </p>
+           <a href='#about'>
+            <MagicButton
+                title="Show my work" 
+                icon={<FaLocationArrow />}
+                position='right'
+                />
 
+           </a>
           
         </div>
       </div>
