@@ -10,7 +10,7 @@ export default function Home() {
     mx-auto sm:px-10">
       <div className="max-w-7xl w-full">
         <FloatingNav navItems={[
-          {name : "Home", link: "/", icon: <FaHome />}
+          {name : "Início", link: "/", icon: <FaHome />}
 
 ]} />
         <Hero />

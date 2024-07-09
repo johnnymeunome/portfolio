@@ -5,6 +5,7 @@ import { gridItems } from '@/data'
 const Grid = () => {
   return (
     <section id="about">
+<<<<<<< HEAD
       <BentoGrid>
         {gridItems.map(({ id, title, description, className, img, imgClassName, titleClassName, spareImg }) => (
           
@@ -20,12 +21,25 @@ const Grid = () => {
               spareImg={spareImg}
              />
 
+=======
+      <BentoGrid className="w-full py-20">
+        {gridItems.map((item, i) => (
+          <BentoGridItem
+            id={item.id}
+            key={i}
+            title={item.title}
+            description={item.description}
+            className={item.className}
+            img={item.img}
+            imgClassName={item.imgClassName}
+            titleClassName={item.titleClassName}
+            spareImg={item.spareImg}
+          />
+>>>>>>> c7e075a36770d5b16345c2e3f752355fcdf073a7
         ))}
-        
-        </BentoGrid> 
-
+      </BentoGrid>
     </section>
-  )
-}
+  );
+};
 
-export default Grid
+export default Grid;
