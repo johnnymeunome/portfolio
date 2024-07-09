@@ -1,14 +1,11 @@
 "use client"
 
-
 import { cn } from "@/utils/cn";
-import { TbBackground } from "react-icons/tb";
-import { BackgroundGradientAnimation } from "./GradientBg";
 import { useState } from "react";
-import animationData from '@/data/confetti.json';
 import Lottie from "react-lottie";
 import { IoCopyOutline } from "react-icons/io5";
-import MagicButton from "./MagicButton";
+import animationData from '@/data/confetti.json';
+import { BackgroundGradientAnimation } from "./GradientBg";
 
 export const BentoGrid = ({
   className,
@@ -33,38 +30,27 @@ export const BentoGridItem = ({
   className,
   title,
   description,
-  header,
-  icon,
   id,
   img,
   imgClassName,
   titleClassName,
   spareImg,
-<<<<<<< HEAD
-=======
-
->>>>>>> c7e075a36770d5b16345c2e3f752355fcdf073a7
 }: {
   className?: string;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
-  header?: React.ReactNode;
-  icon?: React.ReactNode;
   id?: number;
   img?: string;
   imgClassName?: string;
   titleClassName?: string;
   spareImg?: string;
 }) => {
+  const [copied, setCopied] = useState(false);
 
-const [copied, setCopied] = useState(false);
-
-const handleCopy = () => {
-  navigator.clipboard.writeText('contact@jsmastery.pro'); // wpp bussiness
-   
-  setCopied(true);
-
-}
+  const handleCopy = () => {
+    navigator.clipboard.writeText('contact@jsmastery.pro'); // alterar para seu e-mail desejado
+    setCopied(true);
+  };
 
   return (
     <div
@@ -78,7 +64,7 @@ const handleCopy = () => {
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       }}
     >
-      <div className={`$id === 6 && "flex justify-center"} h-full`}>
+      <div className={`${id === 6 ? "flex justify-center" : ""} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
             <img
@@ -131,42 +117,40 @@ const handleCopy = () => {
             </div>
 
             <div className="flex flex-col gap-3">
-            <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
+              <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
               {['Landing Page', 'Social Media', 'IA'].map((item) => (
-           //Problema identificado na segunda coluna pois "I constantly try to improve My tech stack"invade o campo do crm e ia
-
-                 <span
+                <span
                   key={item}
                   className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
                 >
                   {item}
                 </span>
               ))}
-           </div>
+            </div>
             
           </div>
         )}
-         {id === 6 && (
-                <div className="mt-5 relative">
-                  <div className={`absolute -bottom-5 right-0`}>
-                   <Lottie options={{
-                    loop: copied,
-                    autoplay: copied,
-                    animationData,
-                    rendererSettings: {
-                      preserveAspectRatio: 'xMidYMid slice'
-                    }
-                   }} />
-           </div>
-           <MagicButton 
-              title={copied ? 'Email copied' : 'Copy my email'}
-              icon={<IoCopyOutline />}
-              position='left'
-              otherClasses= "!bg-[#161a31]"
-              handleClick={handleCopy}
-           />
-         </div>
-         )}
+        {id === 6 && (
+          <div className="mt-5 relative">
+            <div className={`absolute -bottom-5 right-0`}>
+              <Lottie options={{
+                loop: copied,
+                autoplay: copied,
+                animationData,
+                rendererSettings: {
+                  preserveAspectRatio: 'xMidYMid slice'
+                }
+              }} />
+            </div>
+            <button
+              className="bg-[#161a31] rounded-lg text-white py-2 px-4 flex items-center gap-2"
+              onClick={handleCopy}
+            >
+              <IoCopyOutline className="text-xl" />
+              {copied ? 'Email copied' : 'Copy my email'}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
